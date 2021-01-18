@@ -1,41 +1,26 @@
 #ADIVINA EL NÚMERO
 # modulo que va a permitir elegir numeros aleatoriamente
 import random
+import adivina
 
-# el conjunto de simbolos validos en el codigo
-digitos = ('0','1','2','3','4','5','6','7','8','9')
-
-# Generación de código random
-codigo = ''
-for i in range(4):
-    candidato = random.choice(digitos)
-    # vamos eligiendo digitos no repetidos*
-    while candidato in codigo:
-        print('DEBUG: candidato =', candidato)
-        candidato = random.choice(digitos)
-    codigo = codigo + candidato
-    print('Debug: Números correctos:', codigo)
-# iniciamos interaccion con el usuario*
-print ("Bienvenido/a al Mastermind!")
-print ("Tienes que adivinar un numero de", 4, "cifras distintas") 
-propuesta = input("¿Que codigo propones?: ")
-
-# procesamos las propuestas e indicamos aciertos y coincidencias
-intentos = 1
-while propuesta != codigo:
-    intentos = intentos + 1
-    aciertos = 0
-    coincidencias = 0
-
-    # recorremos la propuesta y verificamos en el codigo
+def gen_num():
+    # Numeros válidos para generar el aleatrorio
+    digitos = ('0','1','2','3','4','5','6','7','8','9')
+    # Generación de código aleatorio
+    codigo = ''
     for i in range(4):
-        if propuesta[i] == codigo[i]:
-            aciertos = aciertos + 1
-        elif propuesta[i] in codigo:
-            coinidencias = coincidencias + 1
-    print ("Tu propuesta (", propuesta, ") tiene", aciertos, \
-          "aciertos y ", coincidencias, "coincidencias.")
-    # pedimos siguiente propuesta*
-    propuesta = input("Propón otro codigo: ")
+        candidato = random.choice(digitos)
+        # sin numeros repetidos*
+        while candidato in codigo:
+            print('DEBUG: candidato =', candidato)
+            candidato = random.choice(digitos)
+        codigo = codigo + candidato
+        print('Debug: Números correctos:', codigo)
+    return codigo
 
-print ("Felicitaciones! Adivinaste el codigo en", intentos, "intentos.")
+# INCIO DEL PROGRAMA
+print ("Bienvenido/a a AdivinaElNumero Competivivo!")
+print("Turno del jugador 1")
+jugador1 = adivina.adivina_num(gen_num())
+print("Turno del Jugador 2")
+jugador2 = adivina.adivina_num(gen_num())
