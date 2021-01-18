@@ -18,11 +18,26 @@ def gen_num():
         print('Debug: Números correctos:', codigo)
     return codigo
 
+def ganador(nombre1, nombre2, puntuacion1, puntucion2):
+    if puntuacion1 > puntucion2:
+        print("El ganador es:", nombre2)
+    elif puntucion2 > puntuacion1:
+        print("El ganador es:", nombre1)
+    else:
+        print("Empate")
+        
 # INCIO DEL PROGRAMA
-print ("Bienvenido/a a AdivinaElNumero Competivivo!")
+print ("Bienvenido/a a Adivinai El Numero Competivivo!")
 print("Turno del jugador 1")
 nombre1 = input("Teclea tu nombre:")
 jugador1 = adivina.adivina_num(gen_num(), nombre1)
 print("Turno del Jugador 2")
 nombre2 = input("Teclea tu nombre:")
 jugador2 = adivina.adivina_num(gen_num(), nombre2)
+
+
+#Ganador
+print("------------------------")
+print("-----¡FELICIDADES!------")
+ganador(nombre1, nombre2, jugador1, jugador2)
+print("------------------------")
