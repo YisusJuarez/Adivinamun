@@ -21,6 +21,8 @@ def gen_num():
 # INCIO DEL PROGRAMA
 print ("Bienvenido/a a AdivinaElNumero Competivivo!")
 print("Turno del jugador 1")
-jugador1 = adivina.adivina_num(gen_num())
+nombre1 = input("Teclea tu nombre:")
+jugador1 = adivina.adivina_num(gen_num(), nombre1)
 print("Turno del Jugador 2")
-jugador2 = adivina.adivina_num(gen_num())
+nombre2 = input("Teclea tu nombre:")
+jugador2 = adivina.adivina_num(gen_num(), nombre2)

@@ -1,8 +1,9 @@
 # Algoritmo de procesamiento de numeor propuest
 import time
 
-def adivina_num(codigo):
-    print ("Tienes que adivinar un numero de", 4, "cifras distintas") 
+def adivina_num(codigo, nombre):
+    print ("%s:tienes que adivinar un numero de" % nombre, 4, "cifras distintas")
+    print("--------COMIENZA---------")
     inicio_de_tiempo = time.time()
     propuesta = input("¿Que codigo propones?: ")
     intentos = 1
